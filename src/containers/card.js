@@ -1,17 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
-const Card = ({ beers }) => {
+const Card = ({ beers, currentBeer }) => {
+  const btnClass = ('button-size material-icons');
+  const thisBeer = beers.filter((beer) => {
+    if (beer.id === currentBeer) {
+      return beer;
+    }
+  });
+
   return (
     <div>
-    { beers.map((beer) => {
+    { thisBeer.map((beer) => {
       return (
         <div key={ beer.id }>
-          <img src={ beer.labels.large }/>
-          <h1>{ beer.name }</h1>
-          <div>
-            <i className='material-icons'>favorite_border</i>
-            <i className='material-icons'>cancel</i>
+          <div className='card'>
+            <img className='card-img-top' src={ beer.labels.large }/>
+            <div className='row card-block'>
+              <div className='col-xs-6'>
+                <h4>{ beer.name }</h4>
+              </div>
+              <div className='col-xs-6 beer-info'>
+                <p>{ beer.style.abvMin }% ABV</p>
+                <p>{ beer.style.shortName }</p>
+              </div>
+            </div>
+          </div>
+          <div className="card-buttons">
+            <i className={ btnClass } id='dislike'>cancel</i>
+            <i className={ btnClass } id='like'>favorite</i>
           </div>
         </div>
       );
@@ -23,7 +41,8 @@ const Card = ({ beers }) => {
 
 function mapStateToProps(state) {
   return {
-    beers: state.beers
+    beers: state.beers,
+    currentBeer: state.currentBeer
   }
 }
 

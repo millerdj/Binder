@@ -1,0 +1,36 @@
+#card {
+  width: 515px;
+}
+
+.card-img-top {
+  text-align: center;
+}
+
+.card-block {
+  margin-top: -50px;
+}
+
+.beer-info {
+  text-align: right;
+}
+
+.button-size {
+  font-size: 60px !important;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+#like {
+  color: green;
+}
+
+#dislike {
+  color: red;
+}
+
+.card-buttons {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

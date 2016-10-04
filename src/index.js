@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { fetchBeers } from './actions';
 
-store.dispatch(fetchBeers())
+store.dispatch(fetchBeers());
 
 function renderApp() {
 

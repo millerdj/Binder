@@ -1,8 +1,10 @@
+import store from '../store';
 export const BEERS_LOADED = 'BEERS_LOADED';
 export const BEERS_FETCHED = 'BEERS_FETCHED';
 export const BEERS_FETCHED_ERROR = 'BEERS_FETCHED_ERROR';
 export const CURRENT_BEER = 'CURRENT_BEER';
 export const NEXT_BEER = 'NEXT_BEER';
+export const BEER_LIKED = 'BEER_LIKED';
 
 export const fetchBeers = () => (dispatch) => {
   dispatch({type: BEERS_FETCHED})
@@ -25,3 +27,7 @@ export const fetchBeers = () => (dispatch) => {
 export const nextBeer = {
   type: NEXT_BEER
 }
+
+export const beerLiked = (currentBeer) => ({
+  type: BEER_LIKED, payload: currentBeer
+})

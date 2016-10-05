@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { NEXT_BEER, nextBeer } from '../actions';
+import { nextBeer, beerLiked } from '../actions';
 
-const Card = ({ beer, switchNext, dispatch }) => {
+const Card = ({ beer, currentBeer, switchNext, addLike }) => {
   const btnClass = ('button-size material-icons');
   if (beer === undefined) {
     return <div></div>;
@@ -27,7 +27,7 @@ const Card = ({ beer, switchNext, dispatch }) => {
         <button onClick={ switchNext } className='button-style'>
           <i className={ btnClass } id='dislike'>cancel</i>
         </button>
-        <button onClick={ switchNext } className='button-style'>
+        <button onClick={ addLike(currentBeer) } className='button-style'>
           <i className={ btnClass } id='like'>favorite</i>
         </button>
       </div>
@@ -37,13 +37,18 @@ const Card = ({ beer, switchNext, dispatch }) => {
 
 function mapStateToProps({ beers, currentBeer }) {
   return {
-    beer: beers[currentBeer]
+    beer: beers[currentBeer],
+    currentBeer: currentBeer
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    switchNext: () => dispatch(nextBeer)
+    switchNext: () => dispatch(nextBeer),
+    addLike: (beer) => () => {
+      dispatch(beerLiked(beer));
+      dispatch(nextBeer);
+    }
   }
 }
 

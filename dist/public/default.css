@@ -1,5 +1,7 @@
 #card {
   width: 515px;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .card-img-top {
@@ -14,6 +16,11 @@
   text-align: right;
 }
 
+.button-style {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
 .button-size {
   font-size: 60px !important;
   cursor: pointer;

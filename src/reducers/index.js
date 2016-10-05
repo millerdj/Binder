@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { BEERS_LOADED, CURRENT_BEER } from '../actions';
+import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER } from '../actions';
 
 const beers = (_beers = [], { type, payload }) => {
   switch (type) {
@@ -8,13 +8,13 @@ const beers = (_beers = [], { type, payload }) => {
   }
 }
 
-const currentBeer = (_currentBeer = [], { type, payload }) => {
+const currentBeer = (_currentBeer = 0, { type }) => {
   switch (type) {
-    case CURRENT_BEER: return payload
+    case NEXT_BEER: return _currentBeer + 1
     default: return _currentBeer
   }
-}
 
+}
 
 
 const rootReducer = combineReducers({

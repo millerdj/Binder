@@ -2,6 +2,7 @@ export const BEERS_LOADED = 'BEERS_LOADED';
 export const BEERS_FETCHED = 'BEERS_FETCHED';
 export const BEERS_FETCHED_ERROR = 'BEERS_FETCHED_ERROR';
 export const CURRENT_BEER = 'CURRENT_BEER';
+export const NEXT_BEER = 'NEXT_BEER';
 
 export const fetchBeers = () => (dispatch) => {
   dispatch({type: BEERS_FETCHED})
@@ -14,11 +15,13 @@ export const fetchBeers = () => (dispatch) => {
   })
   .then((beers) => {
     dispatch({ type: BEERS_LOADED, payload: beers })
-    const currentBeer = beers[0].id
-    dispatch({ type: CURRENT_BEER, payload: currentBeer } )
   })
   .catch(function(error) {
     dispatch({type: BEERS_FETCHED_ERROR})
     console.log(error);
   });
+}
+
+export const nextBeer = {
+  type: NEXT_BEER
 }

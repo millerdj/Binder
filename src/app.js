@@ -12,8 +12,8 @@ app.get('/api/beers', function (req, res) {
       key: '42203dd9d4196085662ec3c1ccfeefc4',
       styleId: '30',
       hasLabels: 'Y',
-      status: 'verified'
-
+      status: 'verified',
+      withBreweries: 'Y'
     },
     headers: {
       format: 'json'

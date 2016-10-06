@@ -1,11 +1,46 @@
+.my-navbar {
+  position: relative !important;
+  background-color: #FFC300;
+  padding-bottom: 0 !important;
+}
+
+#settings {
+  font-size: 30px;
+}
+
+.binder {
+  font-size: 30px;
+}
+
+#favorites {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.star {
+  height: 30px;
+  width: 30px;
+}
+
 #card {
-  width: 515px;
-  margin-left: 50px;
-  margin-top: 50px;
+  width: 100%;
+  margin: 0;
+}
+
+.card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 20px !important;
 }
 
 .card-img-top {
+  width: 100%;
   text-align: center;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
 }
 
 .card-block {
@@ -24,16 +59,16 @@
 .button-size {
   font-size: 60px !important;
   cursor: pointer;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #like {
-  color: green;
+  color: #69CC60;
 }
 
 #dislike {
-  color: red;
+  color: #FF5733;
 }
 
 .card-buttons {

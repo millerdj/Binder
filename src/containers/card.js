@@ -28,7 +28,7 @@ const Card = ({ beer, currentBeer, switchNext, addLike }) => {
           <i className={ btnClass } id='dislike'>cancel</i>
         </button>
         <button onClick={ addLike(currentBeer) } className='button-style'>
-          <i className={ btnClass } id='like'>favorite</i>
+          <i className={ btnClass } id='like'>stars</i>
         </button>
       </div>
     </div>

@@ -10,11 +10,11 @@ const Card = ({ beer, currentBeer, switchNext, addLike }) => {
   }
   return (
     <div key={ beer.id }>
-      <div className='card'>
-        <img className='card-img-top' src={ beer.labels.large }/>
-        <div className='row card-block'>
+      <div className='card main-card'>
+        <img className='card-img-top main-card-img-top' src={ beer.labels.large }/>
+        <div className='row card-block main-card-block'>
           <div className='col-xs-6'>
-            <h4>{ beer.name }</h4>
+            <h5>{ beer.name }</h5>
             <h6>{ beer.breweries[0].name }</h6>
           </div>
           <div className='col-xs-6 beer-info'>

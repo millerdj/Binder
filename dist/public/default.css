@@ -1,5 +1,4 @@
 .my-navbar {
-  position: relative !important;
   background-color: #FFC300;
   padding-bottom: 0 !important;
 }
@@ -21,6 +20,7 @@
 .star {
   height: 30px;
   width: 30px;
+  font-size: 30px !important;
 }
 
 #card {
@@ -28,23 +28,25 @@
   margin: 0;
 }
 
-.card {
+.main-card {
   width: 90%;
+  height: 428px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 90px;
   border-radius: 20px !important;
+  box-shadow: 0px 10px 10px #888888;
 }
 
-.card-img-top {
-  width: 100%;
+.main-card-img-top {
+  width: auto;
+  height: 275px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   border-top-left-radius: 20px !important;
   border-top-right-radius: 20px !important;
-}
-
-.card-block {
-  margin-top: -50px;
 }
 
 .beer-info {
@@ -75,4 +77,14 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.liked-header {
+  margin-top: 53px;
+  width: 100%;
+  position: fixed;
+}
+
+.liked-beer:nth-child(2) {
+  margin-top: 120px;
 }

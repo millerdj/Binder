@@ -7,6 +7,7 @@ import { fetchBeers } from './actions';
 
 store.dispatch(fetchBeers());
 
+
 function renderApp() {
 
   ReactDOM.render (

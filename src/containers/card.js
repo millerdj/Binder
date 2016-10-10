@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { nextBeer, beerLiked } from '../actions';
+import { nextBeer, beerLiked, fetchNewBeers } from '../actions';
+import store from '../store.js';
+
 
 const Card = ({ beer, currentBeer, switchNext, addLike }) => {
   const btnClass = ('button-size material-icons');
   if (beer === undefined) {
     return <div></div>;
   }
+
+  if (store.getState().currentBeer % 10 === 9) {
+    store.dispatch(fetchNewBeers());
+  }
+
   return (
     <div key={ beer.id }>
       <div className='card main-card'>

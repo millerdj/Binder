@@ -45,8 +45,6 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
 }
 
 .beer-info {
@@ -80,9 +78,13 @@
 }
 
 .liked-header {
-  margin-top: 53px;
+  margin-top: 52px;
   width: 100%;
   position: fixed;
+}
+
+.liked-card {
+  margin-bottom: 0 !important;
 }
 
 .liked-beer:nth-child(2) {

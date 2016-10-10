@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER, BEER_LIKED, VIEW_LIKED } from '../actions';
+import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER, BEER_LIKED, VIEW_LIKED, MORE_BEERS_LOADED } from '../actions';
 
 const beers = (_beers = [], { type, payload }) => {
   switch (type) {
     case BEERS_LOADED: return payload
+    case MORE_BEERS_LOADED: return _beers.concat(payload)
     default: return _beers
   }
 }

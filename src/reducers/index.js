@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER, BEER_LIKED, VIEW_LIKED, MORE_BEERS_LOADED } from '../actions';
+import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER, BEER_LIKED, VIEW_LIKED, MORE_BEERS_LOADED, VIEW_SEARCHED } from '../actions';
 
 const beers = (_beers = [], { type, payload }) => {
   switch (type) {
@@ -30,12 +30,20 @@ const viewLike = (_viewLike = false, { type }) => {
   }
 }
 
+const viewSearch = (_viewSearch = false, { type }) => {
+  switch (type) {
+    case VIEW_SEARCHED: return !_viewSearch
+    default: return _viewSearch
+  }
+}
+
 
 const rootReducer = combineReducers({
   beers: beers,
   currentBeer: currentBeer,
   likeBeers: likeBeers,
-  viewLiked: viewLike
+  viewLiked: viewLike,
+  viewSearched: viewSearch
 })
 
 export default rootReducer;

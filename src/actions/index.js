@@ -8,6 +8,7 @@ export const BEER_LIKED = 'BEER_LIKED';
 export const VIEW_LIKED = 'VIEW_LIKED';
 export const MORE_BEERS_FETCHED = 'MORE_BEERS_FETCHED';
 export const MORE_BEERS_LOADED = 'MORE_BEERS_LOADED';
+export const VIEW_SEARCHED = 'VIEW_SEARCHED';
 
 export const fetchBeers = () => (dispatch) => {
   dispatch({type: BEERS_FETCHED})
@@ -56,4 +57,8 @@ export const beerLiked = (currentBeer) => ({
 
 export const viewLiked = {
   type: VIEW_LIKED
+}
+
+export const viewSearched = {
+  type: VIEW_SEARCHED
 }

@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from './card';
 import BeersLiked from './liked-beers';
-import { viewLiked } from '../actions'
+import { viewLiked, viewSearched } from '../actions'
 
-const Header = ({ viewList }) => {
+const Header = ({ viewList, viewSearch }) => {
   return (
     <div>
       <nav className='navbar navbar-fixed-top navbar-light my-navbar'>
         <a className='navbar-brand' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
-          <i className='material-icons' id='settings'>settings</i>
+          <i className='material-icons' onClick={ viewSearch } id='settings'>settings</i>
         </a>
         <a className='navbar-brand binder'>Binder
         </a>
@@ -24,6 +24,7 @@ const Header = ({ viewList }) => {
 function mapDispatchToProps(dispatch) {
   return {
     viewList: () => dispatch(viewLiked),
+    viewSearch: () => dispatch(viewSearched)
   }
 }
 

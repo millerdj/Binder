@@ -22,6 +22,8 @@ app.get('/api/beers', function (req, res) {
     }
   };
 
+
+
   function callback(error, response, body) {
     if(!error) {
       res.send(body);
@@ -33,6 +35,29 @@ app.get('/api/beers', function (req, res) {
   request.get(options, callback);
 
 });
+
+app.get('/api/styles', function (req, res) {
+  var options = {
+    url: 'http://api.brewerydb.com/v2/styles',
+    method: 'GET',
+    qs: {
+      key: '42203dd9d4196085662ec3c1ccfeefc4',
+    },
+    headers: {
+      format: 'json'
+    }
+  };
+
+  function callback(error, response, body) {
+    if(!error) {
+      res.send(body);
+    } else {
+      console.log('error');
+    }
+  }
+
+  request.get(options, callback);
+})
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

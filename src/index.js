@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './containers/app.js';
 import store from './store';
-import { fetchBeers } from './actions';
+import { fetchBeers, fetchStyles } from './actions';
 
 store.dispatch(fetchBeers());
+store.dispatch(fetchStyles());
 
 
 function renderApp() {

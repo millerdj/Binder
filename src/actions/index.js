@@ -9,6 +9,9 @@ export const VIEW_LIKED = 'VIEW_LIKED';
 export const MORE_BEERS_FETCHED = 'MORE_BEERS_FETCHED';
 export const MORE_BEERS_LOADED = 'MORE_BEERS_LOADED';
 export const VIEW_SEARCHED = 'VIEW_SEARCHED';
+export const STYLES_LOADED = 'STYLES_LOADED';
+export const STYLES_FETCHED = 'STYLES_FETCHED';
+export const STYLES_FETCHED_ERROR = 'STYLES_FETCHED_ERROR';
 
 export const fetchBeers = () => (dispatch) => {
   dispatch({type: BEERS_FETCHED})
@@ -27,6 +30,25 @@ export const fetchBeers = () => (dispatch) => {
     console.log(error);
   });
 }
+
+export const fetchStyles = () => (dispatch) => {
+  dispatch({ type: STYLES_FETCHED })
+  fetch('/api/styles')
+  .then(function(response) {
+    return response.json()
+  })
+  .then((json) => {
+    return json.data
+  })
+  .then((styles) => {
+    dispatch({ type: STYLES_LOADED, payload: styles })
+  })
+  .catch(function(error) {
+    dispatch({type: STYLES_FETCHED_ERROR})
+    console.log(error);
+  });
+}
+
 
 export const fetchNewBeers = () => (dispatch) => {
   dispatch({type: MORE_BEERS_FETCHED})

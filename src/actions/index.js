@@ -9,6 +9,7 @@ export const VIEW_LIKED = 'VIEW_LIKED';
 export const MORE_BEERS_FETCHED = 'MORE_BEERS_FETCHED';
 export const MORE_BEERS_LOADED = 'MORE_BEERS_LOADED';
 export const VIEW_SEARCHED = 'VIEW_SEARCHED';
+export const SAVE_SEARCHED = 'SAVE_SEARCHED';
 export const STYLES_LOADED = 'STYLES_LOADED';
 export const STYLES_FETCHED = 'STYLES_FETCHED';
 export const STYLES_FETCHED_ERROR = 'STYLES_FETCHED_ERROR';
@@ -83,4 +84,8 @@ export const viewLiked = {
 
 export const viewSearched = {
   type: VIEW_SEARCHED
+}
+
+export const saveSearched = {
+  type: SAVE_SEARCHED
 }

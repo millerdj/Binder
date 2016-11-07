@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { BEERS_LOADED, CURRENT_BEER, NEXT_BEER, BEER_LIKED, VIEW_LIKED, MORE_BEERS_LOADED, VIEW_SEARCHED, STYLES_LOADED } from '../actions';
 
 const beers = (_beers = [], { type, payload }) => {
@@ -45,13 +46,15 @@ const viewSearch = (_viewSearch = false, { type }) => {
 }
 
 
+
 const rootReducer = combineReducers({
   beers: beers,
   styles: styles,
   currentBeer: currentBeer,
   likeBeers: likeBeers,
   viewLiked: viewLike,
-  viewSearched: viewSearch
+  viewSearched: viewSearch,
+  form: formReducer
 })
 
 export default rootReducer;

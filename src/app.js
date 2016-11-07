@@ -1,28 +1,33 @@
 const express = require('express');
-const app = express();
 const request = require('request');
 
+const app = express();
+
+app.use(express.static(__dirname + '/../dist/public'))
 
 app.get('/api/beers', function (req, res) {
-  console.log(req.query);
-  var options = {
+
+  var queryDynamic = {
+    qs: {
+    styleId: '30',
+    key: '42203dd9d4196085662ec3c1ccfeefc4',
+    hasLabels: 'Y',
+    status: 'verified',
+    withBreweries: 'Y',
+    order: 'random',
+    randomCount: 10
+    }
+  }
+
+  var queryStatic = {
     url: 'http://api.brewerydb.com/v2/beers',
     method: 'GET',
-    qs: {
-      key: '42203dd9d4196085662ec3c1ccfeefc4',
-      styleId: '30',
-      hasLabels: 'Y',
-      status: 'verified',
-      withBreweries: 'Y',
-      order: 'random',
-      randomCount: 10
-    },
     headers: {
       format: 'json'
     }
   };
 
-
+  var options = Object.assign(queryStatic, queryDynamic)
 
   function callback(error, response, body) {
     if(!error) {

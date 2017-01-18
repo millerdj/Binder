@@ -1,4 +1,6 @@
 import store from '../store';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 export const BEERS_LOADED = 'BEERS_LOADED';
 export const BEERS_FETCHED = 'BEERS_FETCHED';
 export const BEERS_FETCHED_ERROR = 'BEERS_FETCHED_ERROR';
@@ -16,7 +18,7 @@ export const STYLES_FETCHED_ERROR = 'STYLES_FETCHED_ERROR';
 
 export const fetchBeers = () => (dispatch) => {
   dispatch({type: BEERS_FETCHED})
-  fetch('/api/beers')
+  fetch('api/beers')
   .then(function(response) {
     return response.json()
   })

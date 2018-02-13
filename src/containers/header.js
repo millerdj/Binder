@@ -11,7 +11,7 @@ const Header = ({ viewList, viewSearch }) => {
         <a className='navbar-brand' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
           <i className='material-icons' onClick={ viewSearch } id='settings'>settings</i>
         </a>
-        <a className='navbar-brand binder'>Binder
+        <a className='navbar-brand binder'>BeerTender
         </a>
         <a className='navbar-brand' id='favorites' role='button'>
           <i className='material-icons star' onClick={ viewList }>star_rate</i>

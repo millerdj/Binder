@@ -1,25 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './containers/app.js';
 import store from './store';
 import { fetchBeers, fetchStyles } from './actions';
 
-store.dispatch(fetchBeers());
-store.dispatch(fetchStyles());
-
-
-function renderApp() {
-
-  ReactDOM.render (
-    <Provider store={ store }>
-      <div>
-        <App />
-      </div>
-    </Provider>
-    ,
-    document.getElementById('card')
-  )
-}
-
-store.subscribe(renderApp);
+render(
+  <Provider store={ store }>
+    <div>
+      <App />
+    </div>
+  </Provider>
+  ,
+  document.getElementById('card')
+);

@@ -2,48 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import store from '../store';
 import Header from './header';
+import { Route, Link } from 'react-router-dom';
 import Card from './card';
 import BeersLiked from './liked-beers';
 import ViewSearch from './view-search';
-import { viewLiked, viewSearched } from '../actions';
 
+const App = () => (
+  <div>
+    <header>
+      <Link to="/">Home</Link>
+      <Link to="/search">Search</Link>
+      <Link to="/favorites">Favorites </Link> 
+    </header>
 
-const App = ({ viewLike, viewSearch }) => {
-  if (viewLike === false && viewSearch === false) {
-    return (
-      <div>
-        <Header />
-        <Card />
-      </div>
-    );
-  }
-  if (viewLike === true && viewSearch === false) {
-    return (
-      <div>
-        <Header />
-        <BeersLiked />
-      </div>
-    );
-  }
-  if (viewLike === false && viewSearch === true) {
-    return (
-      <div>
-        <Header />
-        <ViewSearch />
-      </div>
-    );
-  }
-  if (viewLike === true && viewSearch === true) {
-      store.dispatch(viewLiked)
-      store.dispatch(viewSearched)
-  }
-}
+    <main>
+      <Route exact path="/" component={Card} />
+      <Route exact path="/favorites" component={BeersLiked} />
+      <Route exact path="/search" component={ViewSearch} />
+    </main>
 
-function mapStateToProps({ viewLiked, viewSearched }) {
-  return {
-    viewLike: viewLiked,
-    viewSearch: viewSearched
-  }
-}
+  </div>
+)
 
-export default connect(mapStateToProps)(App);
+export default App

@@ -31,29 +31,11 @@ const likeBeers = (_likeBeer = [], { type , payload }) => {
   }
 }
 
-const viewLike = (_viewLike = false, { type }) => {
-  switch (type) {
-    case VIEW_LIKED: return !_viewLike
-    default: return _viewLike
-  }
-}
-
-const viewSearch = (_viewSearch = false, { type }) => {
-  switch (type) {
-    case VIEW_SEARCHED: return !_viewSearch
-    default: return _viewSearch
-  }
-}
-
-
-
 const rootReducer = combineReducers({
   beers: beers,
   styles: styles,
   currentBeer: currentBeer,
   likeBeers: likeBeers,
-  viewLiked: viewLike,
-  viewSearched: viewSearch,
   form: formReducer
 })
 

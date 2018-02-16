@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import store from '../store';
-import Header from './header';
 import { Route, Link } from 'react-router-dom';
 import Card from './card';
 import BeersLiked from './liked-beers';

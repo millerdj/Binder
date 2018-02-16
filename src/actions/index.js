@@ -71,7 +71,6 @@ export const fetchNewBeers = () => (dispatch) => {
   });
 }
 
-
 export const nextBeer = {
   type: NEXT_BEER
 }
@@ -79,14 +78,6 @@ export const nextBeer = {
 export const beerLiked = (currentBeer) => ({
   type: BEER_LIKED, payload: currentBeer
 })
-
-export const viewLiked = {
-  type: VIEW_LIKED
-}
-
-export const viewSearched = {
-  type: VIEW_SEARCHED
-}
 
 export const saveSearched = {
   type: SAVE_SEARCHED

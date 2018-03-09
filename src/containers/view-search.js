@@ -1,7 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import compose from 'recompose/compose';
 import store from '../store';
+
+
+const SearchForm = reduxForm({
+  form: 'searchForm',
+  fileds: 'beerStyles'
+});
+
+const enhance = compose(
+  SearchForm,
+  connect(
+    ({ styles, form }) => ({
+      styles,
+      currentStyle: form.searchForm,
+    })
+  ),
+)
 
 const ViewSearch = ({ styles, currentStyle }) => {
   return (
@@ -11,10 +28,10 @@ const ViewSearch = ({ styles, currentStyle }) => {
       <div>
         <label><h5>Beer Style</h5></label>
         <div className='form-group center'>
-        <Field className='form-control' name="beerStyle" component="select">
+          <Field className='form-control' name="beerStyles" component="select">
             <option></option>
             { styles.map((style) => {
-              return <option key={ style.id }value={ style.id }>{ style.name }</option>
+              return <option key={style.id} value={style.id}>{ style.name }</option>
             })}
           </Field>
         </div>
@@ -25,20 +42,13 @@ const ViewSearch = ({ styles, currentStyle }) => {
       </div>
 
     </div>
-  );
+  )
 }
 
-const SearchForm = reduxForm({
-  form: 'searchForm',
-  fileds: 'beerStyles'
-})(ViewSearch);
-
-function mapStateToProps({ styles, form }) {
-  return {
-    styles: styles,
-    currentStyle: form.searchForm
-  }
-}
-
-
-export default connect(mapStateToProps)(SearchForm);
+export default compose(
+  SearchForm,
+  connect(({ styles, form }) => ({
+    styles,
+    currentStyle: form.searchForm,
+  }))
+)(ViewSearch);
